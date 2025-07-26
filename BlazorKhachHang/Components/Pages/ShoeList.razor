@@ -11,13 +11,12 @@
 <link href="css/shoelist.css" rel="stylesheet">
 
 <h3 class="breadcrumb-wrapper">
-    <div class="breadcrumb"><h2>Shoe List</h2></div>
+    <div class="breadcrumb"><h2>Menu Trà Sữa</h2></div>
 </h3>
 
 <main class="container">
     <aside class="filter">
-		<strong>Thương Hiệu</strong><br />
-
+        <strong>Hương</strong><br />
         @foreach (var brand in brandList)
         {
             <label>
@@ -40,35 +39,26 @@
                            checked="@selectedPriceLabels.Contains(range.Label)" />
                     @range.Label
                 </label>
-
                 <br />
             }
         </div>
 
-
         <div class="filter-group">
-            <strong>Màu Sắc</strong>
+            <strong>Hương vị</strong>
             <div class="color-options">
-                @foreach (var color in colorList)
-                {
-                    <span class="color @(selectedColors.Contains(color) ? "selected" : "")"
-                          style="background: @color;"
-                          @onclick="() => OnColorFilterChanged(color)">
-                    </span>
-                }
+               
             </div>
         </div>
-
     </aside>
 
     <section class="product-section">
         <div class="section-header">
-            <input type="text" class="search-input" placeholder="Tìm theo tên giày..." @bind="searchKeyword" @bind:event="oninput" />
+            <input type="text" class="search-input" placeholder="Tìm theo tên trà sữa..." @bind="searchKeyword" @bind:event="oninput" />
 
             <select class="sort-dropdown">
-                <option>Best selling</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
+                <option>Bán chạy nhất</option>
+                <option>Giá: Thấp đến Cao</option>
+                <option>Giá: Cao đến Thấp</option>
             </select>
         </div>
 
@@ -98,13 +88,10 @@
                                     <i class="fa-heart @(IsFavorite(giay.GiayId) ? "fas" : "far")"
                                        id="heart-@giay.GiayId"></i>
                                 </div>
-
-
-
                             </div>
 
                             <div class="product-info">
-                                <p class="brand">@giay.TenGiay</p>
+                                <p class="brand">@giay.TenGiay</p> <!-- Tên trà sữa -->
                                 <p class="rating">
                                     <span class="stars">★★★★☆</span>
                                     <span class="count">(17523)</span>
@@ -114,7 +101,7 @@
                                     <span class="price">
                                         $<span class="main">@firstChiTiet.Gia.ToString("N0")</span><sup>đ</sup>
                                     </span>
-                                    <span class="sold">@giay.TenTheLoaiGiay</span>
+                                    <span class="sold">@giay.TenTheLoaiGiay</span> <!-- loại trà -->
                                 </div>
 
                                 <div class="color-size-list mt-2">
@@ -127,7 +114,7 @@
                                                 <span>
                                                     @foreach (var item in group.OrderBy(x => x.size))
                                                     {
-                                                        <span class="badge bg-secondary me-1">@item.size</span>
+                                                        <span class="badge bg-secondary me-1">@item.size ml</span> <!-- Dung tích -->
                                                     }
                                                 </span>
                                             </div>
@@ -141,7 +128,7 @@
             }
             else
             {
-                <p>Không có sản phẩm nào...</p>
+                <p>Không có sản phẩm trà sữa nào...</p>
             }
         </div>
     </section>
@@ -158,20 +145,20 @@
     private HashSet<string> selectedBrands = new();
     private Dictionary<string, bool> IsBrandSelected = new();
     private HashSet<string> favoriteIds = new();
-    private List<string> brandList = new() { "Nike", "Adidas", "Puma", "Skechers", "Vans" };
+    private List<string> brandList = new() { "Đậm đà", "Nhẹ vị", "Lạ Lùng", "Hot", "Ưu đãi" };
 
     private List<(string Label, decimal? Min, decimal? Max)> priceRanges = new()
     {
-        ("Under 200.000đ ", null, 200_000),
-        ("200.000đ - 500.000đ ", 200_000, 500_000),
-        ("500.000đ - 1.000.000đ", 500_000, 1_000_000),
-        ("1.000.000đ - 1.500.000đ", 1_000_000, 1_500_000),
-        ("1.500.000đ - 2.000.000đ", 1_500_000, 2_000_000),
-        ("Under 5.000.000đ", null, 5_000_000),
+        ("Under 20.000đ ", null, 200_000),
+        ("20.000đ - 50.000đ ", 200_000, 500_000),
+        ("50.000đ - 100.000đ", 500_000, 1_000_000),
+        ("100.000đ - 150.000đ", 1_000_000, 1_500_000),
+        ("150.000đ - 200.000đ", 1_500_000, 2_000_000),
+        ("Under 500.000đ", null, 5_000_000),
     };
     private HashSet<string> selectedPriceLabels = new();
 
-    private List<string> colorList = new() { "red", "green", "blue", "yellow", "black", "white" };
+  
     private HashSet<string> selectedColors = new();
 
     private string _searchKeyword = "";

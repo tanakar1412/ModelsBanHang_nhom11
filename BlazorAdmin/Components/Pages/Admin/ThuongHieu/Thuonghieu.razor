@@ -6,23 +6,23 @@
 <link href="/css/site.css" rel="stylesheet" />
 
 <div class="container mt-5">
-    <h4 class="mb-3">🏢 Quản lý thương hiệu</h4>
+    <h4 class="mb-3">Hương</h4>
     <div class="row mb-4 text-center">
         <div class="col-md-4">
             <div class="bg-light border rounded p-4 shadow-sm h-100">
-                <h6 class="text-muted">Tổng số thương hiệu</h6>
+                <h6 class="text-muted">Tổng số </h6>
                 <h4>@ThuongHieus.Count</h4>
             </div>
         </div>
         <div class="col-md-4">
             <div class="bg-light border rounded p-4 shadow-sm h-100">
-                <h6 class="text-muted">Thương hiệu đang hoạt động</h6>
+                <h6 class="text-muted"> đang hoạt động</h6>
                 <h4>@ThuongHieus.Count(v => v.TrangThai)</h4>
             </div>
         </div>
         <div class="col-md-4">
             <div class="bg-light border rounded p-4 shadow-sm h-100">
-                <h6 class="text-muted">Thương hiệu ngừng hoạt động</h6>
+                <h6 class="text-muted"> ngừng hoạt động</h6>
                 <h4>@ThuongHieus.Count(v => !v.TrangThai)</h4>
             </div>
         </div>
@@ -32,8 +32,8 @@
     <div class="card shadow-sm p-4">
         <!-- Tìm kiếm & nút -->
         <div class="d-flex justify-content-between mb-3">
-            <input type="text" class="form-control w-50" placeholder="🔍 Tìm kiếm thương hiệu..." @bind="SearchText" @bind:event="oninput" />
-            <button class="btn btn-outline-primary" @onclick="ShowAddModal">➕ Thêm thương hiệu</button>
+            <input type="text" class="form-control w-50" placeholder="🔍 Tìm kiếm..." @bind="SearchText" @bind:event="oninput" />
+            <button class="btn btn-outline-primary" @onclick="ShowAddModal">➕ Thêm hương </button>
         </div>
        
 
@@ -42,10 +42,8 @@
             <thead class="table-light">
                 <tr>
                     <th style="width: 60px;">STT</th>
-                    <th>Tên thương hiệu</th>
-                    <th>Email</th>
-                    <th>SĐT</th>
-                    <th>Địa chỉ</th>
+                    <th>Tên hương</th>
+                    
                     <th>Trạng thái</th>
                     <th style="width: 120px;">Chức năng</th>
                 </tr>
@@ -64,9 +62,7 @@
                         <tr>
                             <td>@index</td>
                             <td>@item.TenThuongHieu</td>
-                            <td>@item.Email</td>
-                            <td>@item.SDT</td>
-                            <td>@item.DiaChi</td>
+                         
                             <td>
                                 <span class="badge bg-@(item.TrangThai ? "success" : "secondary")">
                                     @(item.TrangThai ? "Đang hoạt động" : "Ngừng hoạt động")

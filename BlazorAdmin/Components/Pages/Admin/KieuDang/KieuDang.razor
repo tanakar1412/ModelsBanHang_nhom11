@@ -3,24 +3,24 @@
 @inject IKieuDangService kieuDangService
 @inject IJSRuntime JS
 <script src="js/site.js"></script>
-<h4 class="mb-3">✨ Quản lý kiểu dáng</h4>
+<h4 class="mb-3">Ly</h4>
 
 <div class="row mb-4 text-center">
     <div class="col-md-4">
         <div class="bg-light border rounded p-4 shadow-sm h-100">
-            <h6 class="text-muted">Tổng số kiểu dáng</h6>
+            <h6 class="text-muted">Tổng số </h6>
             <h4>@danhSach.Count</h4>
         </div>
     </div>
     <div class="col-md-4">
         <div class="bg-light border rounded p-4 shadow-sm h-100">
-            <h6 class="text-muted">Kiểu dáng đang hoạt động</h6>
+            <h6 class="text-muted">đang hoạt động</h6>
             <h4>@danhSach.Count(v => v.TrangThai)</h4>
         </div>
     </div>
     <div class="col-md-4">
         <div class="bg-light border rounded p-4 shadow-sm h-100">
-            <h6 class="text-muted">Kiểu dáng ngừng hoạt động</h6>
+            <h6 class="text-muted">ngừng hoạt động</h6>
             <h4>@danhSach.Count(v => !v.TrangThai)</h4>
         </div>
     </div>
@@ -29,7 +29,7 @@
 <div class="card shadow-sm p-4">
     <!-- Tìm kiếm -->
     <div class="d-flex justify-content-between mb-3">
-        <input type="text" class="form-control w-50" placeholder="🔍 Tìm tên kiểu dáng..." @bind="searchTerm" @bind:event="oninput" />
+        <input type="text" class="form-control w-50" placeholder="🔍 Tìm ..." @bind="searchTerm" @bind:event="oninput" />
         <button class="btn btn-outline-primary" @onclick="ShowAddForm">➕ Thêm mới</button>
     </div>
 
@@ -45,7 +45,7 @@
                     <EditForm Model="FormData" OnValidSubmit="SubmitForm">
                         <DataAnnotationsValidator />
                         <div class="mb-3">
-                            <label class="form-label">Tên kiểu dáng</label>
+                            <label class="form-label">Tên ly</label>
                             <InputText class="form-control" @bind-Value="FormData.TenKieuDang" />
                             <ValidationMessage For="@(() => FormData.TenKieuDang)" />
                         </div>
@@ -80,7 +80,7 @@
         <thead class="table-light">
             <tr>
                 <th style="width: 60px;">STT</th>
-                <th>Tên kiểu dáng</th>
+                <th>Tên ly</th>
                 <th>Mô tả</th>
                 <th>Trạng thái</th>
                 <th style="width: 120px;">Chức năng</th>
@@ -122,7 +122,7 @@
                 <option value="5">5</option>
                 <option value="10">10</option>
             </select>
-            kiểu dáng
+            
         </div>
         <nav>
             <ul class="pagination mb-0">
