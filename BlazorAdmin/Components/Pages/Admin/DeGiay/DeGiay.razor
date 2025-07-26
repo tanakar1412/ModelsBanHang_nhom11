@@ -5,24 +5,24 @@
 @inject IJSRuntime JS
 <link href="/css/site.css" rel="stylesheet" />
 
-<h4 class="mb-3">👟 Quản lý đế giày</h4>
+<h4 class="mb-3"> Loại Sữa</h4>
 
 <div class="row mb-4 text-center">
     <div class="col-md-4">
         <div class="bg-light border rounded p-4 shadow-sm h-100">
-            <h6 class="text-muted">Tổng số đế giày</h6>
+            <h6 class="text-muted">Tổng số </h6>
             <h4>@danhSachDeGiay.Count</h4>
         </div>
     </div>
     <div class="col-md-4">
         <div class="bg-light border rounded p-4 shadow-sm h-100">
-            <h6 class="text-muted">Đế giày đang hoạt động</h6>
+            <h6 class="text-muted">đang hoạt động</h6>
             <h4>@danhSachDeGiay.Count(v => v.TrangThai)</h4>
         </div>
     </div>
     <div class="col-md-4">
         <div class="bg-light border rounded p-4 shadow-sm h-100">
-            <h6 class="text-muted">Đế giày ngừng hoạt động</h6>
+            <h6 class="text-muted">ngừng hoạt động</h6>
             <h4>@danhSachDeGiay.Count(v => !v.TrangThai)</h4>
         </div>
     </div>
@@ -31,7 +31,7 @@
 <div class="card shadow-sm p-4">
     <!-- Tìm kiếm & nút -->
     <div class="d-flex justify-content-between mb-3">
-        <input type="text" class="form-control w-50" placeholder="🔍 Tìm tên đế giày..." @bind="searchTerm" @bind:event="oninput" />
+        <input type="text" class="form-control w-50" placeholder="🔍 Tìm ..." @bind="searchTerm" @bind:event="oninput" />
         <button class="btn btn-outline-primary" @onclick="ShowAddForm">➕ Thêm mới</button>
     </div>
 
@@ -40,7 +40,7 @@
         <thead class="table-light">
             <tr>
                 <th style="width: 60px;">STT</th>
-                <th>Tên đế giày</th>
+                <th>Tên sữa</th>
                 <th>Mô tả</th>
                 <th>Trạng thái</th>
                 <th style="width: 120px;">Chức năng</th>
@@ -86,7 +86,7 @@
                 <option value="5">5</option>
                 <option value="10">10</option>
             </select>
-            đế giày
+            
         </div>
         <nav>
             <ul class="pagination mb-0">

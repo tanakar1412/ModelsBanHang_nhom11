@@ -21,7 +21,7 @@
 
 <div class="container-fluid px-4 py-3">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="mb-0">Thêm sản phẩm mới</h3>
+        <h3 class="mb-0">Thêm trà sữa mới</h3>
         <button class="btn btn-outline-secondary" @onclick="HuyBo">
             <i class="fas fa-arrow-left me-2"></i>Quay lại
         </button>
@@ -41,7 +41,7 @@
             <DataAnnotationsValidator />
             <ValidationSummary class="alert alert-danger mb-4" />
 
-            <!-- Thông tin cơ bản -->
+            <!-- Thông tin chung -->
             <div class="card mb-4 shadow-sm">
                 <div class="card-header bg-primary text-white">
                     <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Thông tin chung</h5>
@@ -49,13 +49,13 @@
                 <div class="card-body">
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label class="form-label">Tên giày <span class="text-danger">*</span></label>
-                            <InputText @bind-Value="_giayModel.TenGiay" class="form-control" placeholder="Nhập tên giày" />
+                            <label class="form-label">Tên trà sữa <span class="text-danger">*</span></label>
+                            <InputText @bind-Value="_giayModel.TenGiay" class="form-control" placeholder="Nhập tên trà sữa" />
                             <ValidationMessage For="@(() => _giayModel.TenGiay)" class="text-danger small" />
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label">Thương hiệu <span class="text-danger">*</span></label>
+                            <label class="form-label">Hương <span class="text-danger">*</span></label>
                             <InputSelect @bind-Value="_giayModel.ThuongHieuId" class="form-select">
                                 <option value="">-- Chọn thương hiệu --</option>
                                 @if (_isLoadingBrands)
@@ -74,9 +74,9 @@
                         </div>
 
                         <div class="col-md-4">
-                            <label class="form-label">Chất liệu <span class="text-danger">*</span></label>
+                            <label class="form-label">Topping <span class="text-danger">*</span></label>
                             <InputSelect @bind-Value="_giayModel.ChatLieuId" class="form-select">
-                                <option value="">-- Chọn chất liệu --</option>
+                                <option value="">-- Chọn topping --</option>
                                 @foreach (var item in _chatLieuOptions.OrderBy(x => x.TenChatLieu))
                                 {
                                     <option value="@item.ChatLieuId">@item.TenChatLieu</option>
@@ -86,9 +86,9 @@
                         </div>
 
                         <div class="col-md-4">
-                            <label class="form-label">Kiểu dáng <span class="text-danger">*</span></label>
+                            <label class="form-label">Loại ly <span class="text-danger">*</span></label>
                             <InputSelect @bind-Value="_giayModel.KieuDangId" class="form-select">
-                                <option value="">-- Chọn kiểu dáng --</option>
+                                <option value="">-- Chọn loại ly --</option>
                                 @foreach (var item in _kieuDangOptions.OrderBy(x => x.TenKieuDang))
                                 {
                                     <option value="@item.KieuDangId">@item.TenKieuDang</option>
@@ -98,9 +98,9 @@
                         </div>
 
                         <div class="col-md-4">
-                            <label class="form-label">Đế giày <span class="text-danger">*</span></label>
+                            <label class="form-label">Sữa <span class="text-danger">*</span></label>
                             <InputSelect @bind-Value="_giayModel.DeGiayId" class="form-select">
-                                <option value="">-- Chọn đế giày --</option>
+                                <option value="">-- Chọn loại sữa --</option>
                                 @foreach (var item in _deGiayOptions.OrderBy(x => x.TenDeGiay))
                                 {
                                     <option value="@item.DeGiayId">@item.TenDeGiay</option>
@@ -110,9 +110,9 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label">Thể loại <span class="text-danger">*</span></label>
+                            <label class="form-label">Trà <span class="text-danger">*</span></label>
                             <InputSelect @bind-Value="_giayModel.TheLoaiGiayId" class="form-select">
-                                <option value="">-- Chọn thể loại --</option>
+                                <option value="">-- Chọn loại trà --</option>
                                 @foreach (var item in _theLoaiOptions.OrderBy(x => x.TenTheLoai))
                                 {
                                     <option value="@item.TheLoaiGiayId">@item.TenTheLoai</option>
@@ -122,11 +122,11 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label">Trạng thái</label>
+                            <label class="form-label">Trạng thái bán</label>
                             <div class="form-check form-switch mt-2">
                                 <input class="form-check-input" type="checkbox" id="trangThai" @bind="_giayModel.TrangThai">
                                 <label class="form-check-label" for="trangThai">
-                                    @(_giayModel.TrangThai ? "Đang Bán" : "Ngừng Bán")
+                                    @(_giayModel.TrangThai ? "Đang bán" : "Ngừng bán")
                                 </label>
                             </div>
                         </div>
@@ -134,14 +134,14 @@
                 </div>
             </div>
 
-            <!-- Biến thể sản phẩm -->
+            <!-- Biến thể trà sữa -->
             <div class="card mb-4 shadow-sm">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0"><i class="fas fa-list-ul me-2"></i>Biến thể sản phẩm</h5>
+                    <h5 class="mb-0"><i class="fas fa-list-ul me-2"></i>Biến thể trà sữa</h5>
                 </div>
                 <div class="card-body">
                     <div class="mb-4">
-                        <h6 class="fw-bold mb-3">Chọn màu sắc <span class="text-danger">*</span></h6>
+                        <h6 class="fw-bold mb-3">Chọn màu sắc của đồ uống<span class="text-danger">*</span></h6>
                         <div class="d-flex flex-wrap gap-2">
                             @foreach (var mau in _danhSachMauCoBan.OrderBy(x => x.TenMau))
                             {
@@ -171,7 +171,7 @@
                     {
                         <div class="alert alert-warning d-flex align-items-center">
                             <i class="fas fa-exclamation-circle me-2"></i>
-                            Vui lòng chọn ít nhất một màu sắc để thêm biến thể
+                            Vui lòng chọn ít nhất một hương vị để thêm biến thể
                         </div>
                     }
                     else
@@ -187,7 +187,7 @@
                                                 aria-controls="collapse_@index">
                                             <span class="badge me-2"
                                                   style="background:@(_danhSachMauCoBan.First(m => m.MauSacId == mau.MauSacId).Color);
-                                                        color:@(IsDarkColor(_danhSachMauCoBan.First(m => m.MauSacId == mau.MauSacId).Color) ? "white" : "black")">
+                                                                    color:@(IsDarkColor(_danhSachMauCoBan.First(m => m.MauSacId == mau.MauSacId).Color) ? "white" : "black")">
                                                 @mau.TenMau
                                             </span>
                                             <span class="badge bg-secondary ms-2">@mau.ChiTietSizes.Count biến thể</span>
@@ -200,33 +200,29 @@
                                             {
                                                 <div class="row g-3 mb-3 align-items-end">
                                                     <div class="col-md-3">
-                                                        <label class="form-label">Kích cỡ <span class="text-danger">*</span></label>
+                                                        <label class="form-label">Dung tích ly (ml) <span class="text-danger">*</span></label>
                                                         <InputSelect @bind-Value="size.KichCoId" class="form-select">
-                                                            <option value="">-- Chọn kích cỡ --</option>
+                                                            <option value="">-- Chọn dung tích --</option>
                                                             @foreach (var kc in _danhSachKichCo.OrderBy(x => x.size))
                                                             {
-                                                                <option value="@kc.KichCoId">Size @kc.size</option>
+                                                                <option value="@kc.KichCoId">@kc.size ml</option>
                                                             }
                                                         </InputSelect>
                                                         <ValidationMessage For="@(() => size.KichCoId)" class="text-danger small" />
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label class="form-label">Giá (VNĐ) <span class="text-danger">*</span></label>
-                                                        <InputNumber @bind-Value="size.Gia" class="form-control"
-                                                                     min="1000" step="1000" format="N0" />
+                                                        <label class="form-label">Giá bán (VNĐ) <span class="text-danger">*</span></label>
+                                                        <InputNumber @bind-Value="size.Gia" class="form-control" min="1000" step="1000" format="N0" />
                                                         <ValidationMessage For="@(() => size.Gia)" class="text-danger small" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <label class="form-label">Số lượng <span class="text-danger">*</span></label>
-                                                        <InputNumber @bind-Value="size.SoLuong" class="form-control"
-                                                                     min="1" />
+                                                        <label class="form-label">Số lượng tồn <span class="text-danger">*</span></label>
+                                                        <InputNumber @bind-Value="size.SoLuong" class="form-control" min="1" />
                                                         <ValidationMessage For="@(() => size.SoLuong)" class="text-danger small" />
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label class="form-label">Ảnh sản phẩm</label>
-                                                        <InputFile OnChange="@( (InputFileChangeEventArgs e) => HandleUploadAnh(e, size) )"
-
-                                                                   accept="image/*" class="form-control" />
+                                                        <label class="form-label">Hình ảnh sản phẩm</label>
+                                                        <InputFile OnChange="@((InputFileChangeEventArgs e) => HandleUploadAnh(e, size))" accept="image/*" class="form-control" />
                                                         @if (!string.IsNullOrEmpty(size.AnhDaTai))
                                                         {
                                                             <div class="mt-2 d-flex align-items-center">
@@ -255,7 +251,7 @@
                                             <div class="mt-3">
                                                 <button type="button" class="btn btn-outline-primary"
                                                         @onclick="() => AddSize(mau)" disabled="@_isSubmitting">
-                                                    <i class="fas fa-plus me-1"></i> Thêm kích cỡ
+                                                    <i class="fas fa-plus me-1"></i> Thêm dung tích
                                                 </button>
                                             </div>
                                         </div>
@@ -288,6 +284,7 @@
         </EditForm>
     }
 </div>
+
 
 @code {
     // Model chính

@@ -11,7 +11,7 @@
 <div class="container">
     <!-- Banner -->
     <div class="banner">
-        <img src="https://storage.pixteller.com/designs/designs-images/2020-12-21/05/sport-shoes-sale-banner-1-5fe0bc1f11c83.png" alt="Nike Banner">
+        <img src="https://simexcodl.com.vn/wp-content/uploads/2024/05/tra-sua-ca-phe-2.jpg" alt="Nike Banner">
         <div class="banner-content">
             <p>SALE UP TO 50%</p>
             <button>Explore Now <i class="fa fa-arrow-right"></i></button>
@@ -39,7 +39,7 @@
 </div>
 
 @code {
-    private List<string> categories = new() { "Trẻ em", "Thể Thao", "Lịch Lãm", "Thời Trang", "Ưu đãi" };
+    private List<string> categories = new() { "Đậm đà", "Nhẹ vị", "Lạ Lùng", "Hot", "Ưu đãi" };
     private List<GiayDTO> giayDeals = new();
     private List<GiayDTO> giayNew = new();
     private List<GiayDTO> giayBest = new();
@@ -56,11 +56,11 @@
     {
         return category switch
         {
-            "Trẻ em" => "https://i.ebayimg.com/images/g/QjEAAOSwK6ZhlLJS/s-l1200.jpg",
-            "Thể Thao" => "https://product.hstatic.net/200000641225/product/6_53d500d9f1ee488f8a7ad62d2c07887c_master.png",
-            "Lịch Lãm" => "https://ardenteal.com/cdn/shop/articles/Best_colours_to_wear_with_brown_shoes_1500x643.jpg?v=1686881257",
-            "Thời Trang" => "https://images.axios.com/p8tJ-NCV12xN3nrBxh47R-DSHHI=/1024x1024/smart/2023/03/11/1678560460423.jpg",
-            "Ưu đãi" => "https://m.media-amazon.com/images/I/71aQ2z4sj-L._AC_SL1500_.jpg",
+            "Đậm đà" => "https://file.hstatic.net/1000135323/article/tra_sua_ngon_1ebddd76eed14d708abc4a9ee597b304.jpg",
+            "Nhẹ vị" => "https://static.kinhtedouong.vn/w640/images/upload/04162023/best-bubble-tea-flavors-body-image-1_189300e4.jpg",
+            "Lạ Lùng" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZF5QwwW8yQDyona2Y7AANhEi941GHbJrxDQ&s",
+            "Hot" => "https://vietblend.vn/wp-content/uploads/2018/12/tra-sua-ngon.jpg",
+            "Ưu đãi" => "https://phuongnamvina.com/img_data/images/mo-quan-tra-sua-can-nhung-gi-12-buoc-mo-quan-tra-sua-thanh-cong.jpg",
             _ => "LOGO.png"
         };
     }
